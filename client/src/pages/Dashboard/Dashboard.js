@@ -6,7 +6,7 @@ const Dashboard = () => {
     <div>
       <h2>Dashboard</h2>
       <input type="text" name="search" placeholder="Search"/>
-      <h1>Good Morning, Paul</h1>
+      <h1>Good Morning, John</h1>
       <ul>
         <li>
           <Link to="/banking">Banking</Link>

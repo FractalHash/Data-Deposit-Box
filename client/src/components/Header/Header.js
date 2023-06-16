@@ -1,5 +1,6 @@
 import React from 'react';
 import statusBar from '../../assets/icons/status-bar.png';
+import "./Header.scss"
 
 const Header = () => {
   return (

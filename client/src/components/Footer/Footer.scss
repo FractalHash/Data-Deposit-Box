@@ -3,6 +3,8 @@
 .footer {
   display: flex;
   justify-content: space-between;
+  justify-content: center;
+  margin-right: 5rem;
   &__icon {
     height: 2.1875rem;
   }
