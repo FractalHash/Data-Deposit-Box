@@ -27,11 +27,12 @@ const Medical = () => {
       <article>
         <h3>PRESCRIPTIONS</h3>
         <p>Subhead</p>
-      <div className='medical__top-container'>
-        <h1 className='medical__title'>Medical</h1>
-        <input className='medical__search' type="text" name="search" placeholder="Search" />
-        <h3 className='medical__categories'>Categories</h3>
-      </div>
+        <div className='medical__top-container'>
+          <h1 className='medical__title'>Medical</h1>
+          <input className='medical__search' type="text" name="search" placeholder="Search" />
+          <h3 className='medical__categories'>Categories</h3>
+        </div>
+      </article>
       <article className='medical__row-container'>
         <div className='medical__row'>
           <Link to='/document-details'>

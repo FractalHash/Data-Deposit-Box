@@ -15,7 +15,6 @@ const DocumentDetails = () => {
           <p>Subhead</p>
         </div>
         <h2>Patient Medical History</h2>
-        <ul>
       <div className='document-details__top-container'>
         <h1 className='document-details__title'>Medical History Document</h1>
         <input className='document-details__search' type="text" name="search" placeholder="Search" />
@@ -64,6 +63,7 @@ const DocumentDetails = () => {
         <button>SHARE</button>
         <button>DOWNLOAD</button>
       </div>
+      </article>
     </section>
   );
 };
