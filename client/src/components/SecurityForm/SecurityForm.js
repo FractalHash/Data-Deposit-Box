@@ -38,7 +38,7 @@ const SecurityForm = () => {
   return (
     <div>
       <h2>Security Questions</h2>
-      <p>PLease choose security questions and answers before continuing. These questions will be used to confirm your identity</p>
+      <p>Please choose security questions and answers before continuing. These questions will be used to confirm your identity</p>
       <form onSubmit={handleFormSubmit}>
         {questions.map(({ questionId, question }) => (
           <div key={questionId}> 

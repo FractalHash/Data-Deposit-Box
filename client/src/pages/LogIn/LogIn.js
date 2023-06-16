@@ -36,7 +36,6 @@ const LogIn = () => {
       <img src={logo} alt='logo' />
       <h1>Data Deposit Box</h1>
       <form className="login-form" onSubmit={handleFormSubmit}>
-        <h2>Login</h2>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
@@ -44,6 +43,7 @@ const LogIn = () => {
             id="email"
             value={email}
             onChange={handleEmailChange}
+            className='email'
             required
           />
         </div>
@@ -54,6 +54,7 @@ const LogIn = () => {
             id="password"
             value={password}
             onChange={handlePasswordChange}
+            className='password'
             required
           />
         </div>
