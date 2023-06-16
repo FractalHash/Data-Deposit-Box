@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const router = express.Router()
 const PORT = process.env.PORT || 5050;
+const bcrypt = require("bcrypt")
 
 require('dotenv').config();
 
@@ -21,5 +22,10 @@ app.get("/", (_req, res) => {
 app.listen(PORT, () => {
   console.log(`running at http://localhost:${PORT}`);
 });
+
+// bcrypt.hash('password', 10, function( err, hash ) {
+//   // Store hash in database
+//   console.log(hash)
+// });
 
 module.exports = router;
