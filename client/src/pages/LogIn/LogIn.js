@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LogIn.scss';
+import logo from '../../assets/images/Vector.png';
 import axios from 'axios';
 import validator from 'validator';
 import { Link } from 'react-router-dom';
@@ -23,7 +24,7 @@ const LogIn = () => {
 
   return (
     <div className="login-container">
-      <img src='' alt='logo' />
+      <img src={logo} alt='logo' />
       <h1>Data Deposit Box</h1>
       <form className="login-form" onSubmit={handleFormSubmit}>
         <h2>Login</h2>
@@ -48,7 +49,7 @@ const LogIn = () => {
           />
         </div>
         <div className="form-group">
-          <Link to="/" type="submit" className="signin-button">
+          <Link to="/user" type="submit" className="signin-button">
             Sign In
           </Link>
         </div>
@@ -56,7 +57,7 @@ const LogIn = () => {
           <Link to="/forgot-password">Forgot Password?</Link>
         </div>
         <div className="form-group">
-          <Link to="/register">Register</Link>
+          <Link to="/">Register</Link>
         </div>
       </form>
     </div>
