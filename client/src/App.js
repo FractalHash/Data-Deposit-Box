@@ -4,7 +4,11 @@ import { useState } from "react";
 import SecurityForm from './components/SecurityForm/SecurityForm';
 import RandomSecurityQuestions from './components/RandomSecurityQuestions/RandomSecurityQuestions';
 import Dashboard from './pages/Dashboard/Dashboard';
+import Medical from './pages/Medical/Medical';
+import Footer from './components/Footer/Footer';
 import './App.scss';
+import DocumentDetails from './pages/DocumentDetails/DocumentDetails';
+import Confirmation from './components/Confirmation/Confirmation';
 
 function App() {
 
@@ -51,7 +55,11 @@ function App() {
             )
           }
         />
+        <Route path='/medical' element={<Medical />} />
+        <Route path='/document-details' element={<DocumentDetails />} />
+        <Route path='/confirmation' element={<Confirmation />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -1,0 +1,9 @@
+@use '../../styles/partials/mixins' as *;
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  &__icon {
+    height: 2.1875rem;
+  }
+}
