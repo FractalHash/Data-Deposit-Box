@@ -1,5 +1,6 @@
 const knex = require('knex')(require('../knexfile'));
 
+
 const getUser = (req, res) => {
   knex("users")
     .where({ id: req.params.id })
@@ -34,10 +35,11 @@ const addQuestion = (req, res) => {
     });
 };
 
+
+
 const getRandomQuestions = (req, res) => {
   const userId = req.params.id;
 
-  // Fetch three random questions for the user
   knex('questions')
     .select('id', 'question')
     .where({ user_id: userId })
@@ -56,11 +58,12 @@ const getRandomQuestions = (req, res) => {
     });
 };
 
+
+
 const submitAnswers = (req, res) => {
   const userId = req.params.id;
   const { answers } = req.body;
 
-  // Fetch the correct answers for the user's questions
   knex('questions')
     .select('id', 'answer')
     .where({ user_id: userId })
@@ -70,7 +73,6 @@ const submitAnswers = (req, res) => {
         return acc;
       }, {});
 
-      // Check if the submitted answers match the correct answers
       const isCorrect = answers.every((answer) => correctAnswers[answer.questionId] === answer.answer);
 
       if (isCorrect) {
@@ -83,6 +85,9 @@ const submitAnswers = (req, res) => {
       res.status(500).json({ message: 'Error checking answers', error: err });
     });
 };
+
+
+
 
 module.exports = {
   getUser,
