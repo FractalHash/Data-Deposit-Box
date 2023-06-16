@@ -7,7 +7,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Medical from './pages/Medical/Medical';
 import Footer from './components/Footer/Footer';
 import LandingPage from './pages/LandingPage/LandingPage';
-
+import Header from './components/Header/Header';
 import './App.scss';
 import DocumentDetails from './pages/DocumentDetails/DocumentDetails';
 import Confirmation from './components/Confirmation/Confirmation';
@@ -38,6 +38,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/login' element={<LogIn />} />
