@@ -1,48 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SecurityForm = () => {
-  const [question, setQuestion] = useState('');
-  const [customQuestion, setCustomQuestion] = useState('');
-  const [answer, setAnswer] = useState('');
+  const [questions, setQuestions] = useState([]);
 
-  const securityQuestions = [
-    'What is your mother\'s maiden name?',
-    'What was the name of your first pet?',
-    'In what city were you born?',
-    // Add more pre-created security questions here
-  ];
+  const navigate = useNavigate()
 
-  const handleQuestionChange = (e) => {
-    setQuestion(e.target.value);
-  };
 
-  const handleCustomQuestionChange = (e) => {
-    setCustomQuestion(e.target.value);
-  };
+  useEffect(() => {
+    const getQuestions = async () => {
+      const response = await axios.get("http://localhost:8080/user/1/random-questions")
+      console.log(response.data)
+      setQuestions(response.data.questions)
+    }
+    getQuestions()
+  },[])
 
-  const handleAnswerChange = (e) => {
-    setAnswer(e.target.value);
-  };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+    const answers = questions.map(({ questionId }) => {
+      const answer = e.target[`answer-${questionId}`].value
+      return {questionId, answer}
+    })
+    console.log(answers)
 
-    const data = {
-      question: question === 'custom' ? customQuestion : question,
-      answer: answer,
-    };
+    try {
+      const response = await axios.post("http://localhost:8080/user/1/random-questions", { answers })
+      navigate("/")
+    } catch (e) {
+      alert("Wrong answers!")
+    }
 
-    // Replace API_ENDPOINT with the actual API endpoint
-    axios.post('API_ENDPOINT', data)
-      .then((response) => {
-        // Handle the response as needed
-        console.log(response.data);
-      })
-      .catch((error) => {
-        // Handle errors
-        console.error(error);
-      });
   };
 
   return (
@@ -50,176 +40,18 @@ const SecurityForm = () => {
       <h2>Security Questions</h2>
       <p>PLease choose security questions and answers before continuing. These questions will be used to confirm your identity</p>
       <form onSubmit={handleFormSubmit}>
-        <div>
-          <label htmlFor="question">Security Question:</label>
-          <select id="question" value={question} onChange={handleQuestionChange}>
-            <option value="">Select a question</option>
-            {securityQuestions.map((q, index) => (
-              <option key={index} value={q}>{q}</option>
-            ))}
-            <option value="custom">Create a custom question</option>
-          </select>
-        </div>
-        {question === 'custom' && (
-          <div>
-            <label htmlFor="customQuestion">Custom Question:</label>
+        {questions.map(({ questionId, question }) => (
+          <div key={questionId}> 
+            <p>{question}</p>
+            <label htmlFor={ `answer-${questionId}` }>Answer:</label>
             <input
               type="text"
-              id="customQuestion"
-              value={customQuestion}
-              onChange={handleCustomQuestionChange}
-              placeholder="Enter your custom question"
+              id={ `answer-${questionId}` }
+              placeholder="Enter your answer"
               required
             />
           </div>
-        )}
-        <div>
-          <label htmlFor="answer">Answer:</label>
-          <input
-            type="text"
-            id="answer"
-            value={answer}
-            onChange={handleAnswerChange}
-            placeholder="Enter your answer"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="question">Security Question:</label>
-          <select id="question" value={question} onChange={handleQuestionChange}>
-            <option value="">Select a question</option>
-            {securityQuestions.map((q, index) => (
-              <option key={index} value={q}>{q}</option>
-            ))}
-            <option value="custom">Create a custom question</option>
-          </select>
-        </div>
-        {question === 'custom' && (
-          <div>
-            <label htmlFor="customQuestion">Custom Question:</label>
-            <input
-              type="text"
-              id="customQuestion"
-              value={customQuestion}
-              onChange={handleCustomQuestionChange}
-              placeholder="Enter your custom question"
-              required
-            />
-          </div>
-        )}
-        <div>
-          <label htmlFor="answer">Answer:</label>
-          <input
-            type="text"
-            id="answer"
-            value={answer}
-            onChange={handleAnswerChange}
-            placeholder="Enter your answer"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="question">Security Question:</label>
-          <select id="question" value={question} onChange={handleQuestionChange}>
-            <option value="">Select a question</option>
-            {securityQuestions.map((q, index) => (
-              <option key={index} value={q}>{q}</option>
-            ))}
-            <option value="custom">Create a custom question</option>
-          </select>
-        </div>
-        {question === 'custom' && (
-          <div>
-            <label htmlFor="customQuestion">Custom Question:</label>
-            <input
-              type="text"
-              id="customQuestion"
-              value={customQuestion}
-              onChange={handleCustomQuestionChange}
-              placeholder="Enter your custom question"
-              required
-            />
-          </div>
-        )}
-        <div>
-          <label htmlFor="answer">Answer:</label>
-          <input
-            type="text"
-            id="answer"
-            value={answer}
-            onChange={handleAnswerChange}
-            placeholder="Enter your answer"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="question">Security Question:</label>
-          <select id="question" value={question} onChange={handleQuestionChange}>
-            <option value="">Select a question</option>
-            {securityQuestions.map((q, index) => (
-              <option key={index} value={q}>{q}</option>
-            ))}
-            <option value="custom">Create a custom question</option>
-          </select>
-        </div>
-        {question === 'custom' && (
-          <div>
-            <label htmlFor="customQuestion">Custom Question:</label>
-            <input
-              type="text"
-              id="customQuestion"
-              value={customQuestion}
-              onChange={handleCustomQuestionChange}
-              placeholder="Enter your custom question"
-              required
-            />
-          </div>
-        )}
-        <div>
-          <label htmlFor="answer">Answer:</label>
-          <input
-            type="text"
-            id="answer"
-            value={answer}
-            onChange={handleAnswerChange}
-            placeholder="Enter your answer"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="question">Security Question:</label>
-          <select id="question" value={question} onChange={handleQuestionChange}>
-            <option value="">Select a question</option>
-            {securityQuestions.map((q, index) => (
-              <option key={index} value={q}>{q}</option>
-            ))}
-            <option value="custom">Create a custom question</option>
-          </select>
-        </div>
-        {question === 'custom' && (
-          <div>
-            <label htmlFor="customQuestion">Custom Question:</label>
-            <input
-              type="text"
-              id="customQuestion"
-              value={customQuestion}
-              onChange={handleCustomQuestionChange}
-              placeholder="Enter your custom question"
-              required
-            />
-          </div>
-        )}
-        <div>
-          <label htmlFor="answer">Answer:</label>
-          <input
-            type="text"
-            id="answer"
-            value={answer}
-            onChange={handleAnswerChange}
-            placeholder="Enter your answer"
-            required
-          />
-        </div>
+        ))}
         <button type="submit">Submit</button>
       </form>
     </div>

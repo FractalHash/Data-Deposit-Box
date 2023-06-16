@@ -6,6 +6,8 @@ import RandomSecurityQuestions from './components/RandomSecurityQuestions/Random
 import Dashboard from './pages/Dashboard/Dashboard';
 import Medical from './pages/Medical/Medical';
 import Footer from './components/Footer/Footer';
+import LandingPage from './pages/LandingPage/LandingPage';
+
 import './App.scss';
 import DocumentDetails from './pages/DocumentDetails/DocumentDetails';
 import Confirmation from './components/Confirmation/Confirmation';
@@ -37,8 +39,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path='/' element={<LandingPage />} />
         <Route path='/login' element={<LogIn />} />
-        <Route path='/' element={<Dashboard />} />
+        <Route path='/user' element={<Dashboard />} />
         <Route path='/securityform' element={<SecurityForm />} />
         <Route path='/:id' element={''} />
         <Route

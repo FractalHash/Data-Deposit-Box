@@ -1,4 +1,5 @@
 import React from 'react';
+import './DocumentDetails.scss'
 
 const DocumentDetails = () => {
   return (
@@ -15,6 +16,18 @@ const DocumentDetails = () => {
         </div>
         <h2>Patient Medical History</h2>
         <ul>
+      <div className='document-details__top-container'>
+        <h1 className='document-details__title'>Medical History Document</h1>
+        <input className='document-details__search' type="text" name="search" placeholder="Search" />
+      </div>
+      <article className='document-details__info'>
+        <img />
+        <div className='document-details__info-top-container'>
+          <h3 className='document-details__info-top-title'>Paul Lewis</h3>
+          <p className='document-details__info-top-subhead'>Subhead</p>
+        </div>
+        <h2 className='document-details__info-title'>Patient Medical History</h2>
+        <ul className='document-details__info-list'>
           <h3>Personal Information:</h3>
           <li>Name: Paul Lewis</li>
           <li>Date of Birth: 25/05/1976</li>
@@ -22,7 +35,8 @@ const DocumentDetails = () => {
           <li>Contact Number: (555) 123-4567</li>
           <li>Email Address: paullewis@email.com</li>
         </ul>
-        <ul>
+        <ul className='document-details__info-list'>
+
           <h3>Medical History:</h3>
           <li>Current Medications: Lisinopril</li>
           <li>Allergies: Penicillin</li>
@@ -34,7 +48,11 @@ const DocumentDetails = () => {
           <h3>Vaccination History:</h3>
           <li>Other vaccinations: Tetanus, Influenza</li>
         </ul>
-        <ul>
+        <ul className='document-details__info-list'>
+          <h3>Vaccination History:</h3>
+          <li>Other vaccinations: Tetanus, Influenza</li>
+        </ul>
+        <ul className='document-details__info-list'>
           <h3>Additional Information:</h3>
           <li>Preferred pharmacy: ABC pharmacy</li>
           <li>Emergency Contact: Jane Smith (sister), (555) 978-6453</li>

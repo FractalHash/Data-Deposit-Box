@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import './LogIn.scss';
+import logo from '../../assets/images/Vector.png';
 import axios from 'axios';
 import validator from 'validator';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const LogIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate()
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -16,14 +19,21 @@ const LogIn = () => {
     setPassword(e.target.value);
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Handle Submit TODO
+    const email = e.target.email.value
+    const password = e.target.password.value
+    try {
+      const response = await axios.post("http://localhost:8080/login", { email, password })
+      navigate("/user")
+    } catch (error) {
+      alert("could not login")
+    }
   };
 
   return (
     <div className="login-container">
-      <img src='' alt='logo' />
+      <img src={logo} alt='logo' />
       <h1>Data Deposit Box</h1>
       <form className="login-form" onSubmit={handleFormSubmit}>
         <h2>Login</h2>
@@ -48,15 +58,15 @@ const LogIn = () => {
           />
         </div>
         <div className="form-group">
-          <Link to="/" type="submit" className="signin-button">
+          <button type="submit" className="signin-button">
             Sign In
-          </Link>
+          </button>
         </div>
         <div className="form-group">
           <Link to="/forgot-password">Forgot Password?</Link>
         </div>
         <div className="form-group">
-          <Link to="/register">Register</Link>
+          <Link to="/">Register</Link>
         </div>
       </form>
     </div>

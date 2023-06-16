@@ -1,0 +1,47 @@
+@use '../../styles/partials/typography' as *;
+@use '../../styles/partials/variables' as *;
+
+.logo__container {
+  background: linear-gradient(180deg, #21005d 0%, #6750a4 66.15%, #ffd8e4 100%);
+  border-radius: 0px 0px 55px 55px;
+  width: 24.4rem;
+  height: 18.3rem;
+  &-logo {
+    position: relative;
+    top: 20%;
+    left: 27%;
+  }
+}
+
+
+.landing-page {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__heading {
+    font-family: $text;
+    width: 22.4rem;
+    font-size: 2.8rem;
+    line-height: 3.25rem;
+    text-align: center;
+  }
+  &__text {
+    font-family: $text;
+    font-size: 1.75rem;
+    width: 22.4rem;
+    text-align: center;
+  }
+}
+
+.btn {
+  width: 22.4rem;
+  height: 4.4rem;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 15px;
+  font-family: $text;
+  color: white;
+  font-size: 1.75rem;
+  background-color: #6750a4;
+}
