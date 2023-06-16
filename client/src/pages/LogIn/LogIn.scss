@@ -11,6 +11,7 @@ h1 {
   height: 2rem;
   border-radius: 5px;
   border: 1px solid black;
+  margin-left: 1rem;
 }
 .password {
   width: 13.5rem;
@@ -18,6 +19,7 @@ h1 {
   height: 2rem;
   border-radius: 5px;
   border: 1px solid black;
+  margin-left: 1rem;
 }
 .signin-button {
   width: 18rem;
@@ -27,4 +29,9 @@ h1 {
   border-style: none;
   background-color: #6750a4;
   color: white;
+  margin-bottom: 2rem;
+}
+
+.targetme {
+  margin-left: 1rem;
 }

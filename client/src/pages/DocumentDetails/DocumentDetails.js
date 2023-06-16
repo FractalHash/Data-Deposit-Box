@@ -11,17 +11,17 @@ const DocumentDetails = () => {
       <article className='document-details__info'>
         <img />
         <div className='document-details__info-top-container'>
-          <h3 className='document-details__info-top-title'>Paul Lewis</h3>
+          <h3 className='document-details__info-top-title'>John Doe</h3>
           <p className='document-details__info-top-subhead'>Subhead</p>
         </div>
         <h2 className='document-details__info-title'>Patient Medical History</h2>
         <ul className='document-details__info-list'>
           <h3>Personal Information:</h3>
-          <li>Name: Paul Lewis</li>
+          <li>Name: John Doe</li>
           <li>Date of Birth: 25/05/1976</li>
           <li>Gender: Male</li>
           <li>Contact Number: (555) 123-4567</li>
-          <li>Email Address: paullewis@email.com</li>
+          <li>Email Address: johndoe@example.com</li>
         </ul>
         <ul className='document-details__info-list'>
           <h3>Medical History:</h3>
