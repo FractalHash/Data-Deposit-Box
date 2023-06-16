@@ -18,3 +18,7 @@
     align-items: $cross-axis;
     flex-direction: $direction;
   }
+
+  @mixin box-background-color {
+    background-color: $industry-purple
+  }

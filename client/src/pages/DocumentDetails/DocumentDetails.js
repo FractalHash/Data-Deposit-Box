@@ -4,6 +4,18 @@ import './DocumentDetails.scss'
 const DocumentDetails = () => {
   return (
     <section className='document-details'>
+      <div>
+        <h1>Medical History Document</h1>
+        <input type="text" name="search" placeholder="Search" />
+      </div>
+      <article>
+        <img />
+        <div>
+          <h3>Paul Lewis</h3>
+          <p>Subhead</p>
+        </div>
+        <h2>Patient Medical History</h2>
+        <ul>
       <div className='document-details__top-container'>
         <h1 className='document-details__title'>Medical History Document</h1>
         <input className='document-details__search' type="text" name="search" placeholder="Search" />
@@ -24,12 +36,17 @@ const DocumentDetails = () => {
           <li>Email Address: paullewis@email.com</li>
         </ul>
         <ul className='document-details__info-list'>
+
           <h3>Medical History:</h3>
           <li>Current Medications: Lisinopril</li>
           <li>Allergies: Penicillin</li>
           <li>Previous surgeries: Appendectomies (2010)</li>
           <li>Chronic Conditions: Hypertension</li>
           <li>Family Medical History: Heart Disease, Diabetes</li>
+        </ul>
+        <ul>
+          <h3>Vaccination History:</h3>
+          <li>Other vaccinations: Tetanus, Influenza</li>
         </ul>
         <ul className='document-details__info-list'>
           <h3>Vaccination History:</h3>
@@ -41,12 +58,14 @@ const DocumentDetails = () => {
           <li>Emergency Contact: Jane Smith (sister), (555) 978-6453</li>
           <li>Insurance Information: XYZ Insurance, Policy #12345</li>
         </ul>
-        <div className='document-details__btns'>
-          <button className='document-details__btn'>DELETE</button>
-          <button className='document-details__btn'>SHARE</button>
-          <button className='document-details__btn document-details__btn-download'>DOWNLOAD</button>
-        </div>
       </article>
+      <div>
+        <button>DELETE</button>
+        <button>SHARE</button>
+        <button>DOWNLOAD</button>
+      </div>
     </section>
   );
 };
+
+export default DocumentDetails;
