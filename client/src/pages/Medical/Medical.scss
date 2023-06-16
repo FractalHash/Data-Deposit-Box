@@ -1,0 +1,67 @@
+@use '../../styles/partials/mixins' as *;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.medical {
+  &__top-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center
+  }
+  &__title {
+    @include box-background-color;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 5px;
+    padding: 0.5rem 0;
+    width: 95%;
+    font-weight: 400;
+    margin-top: 15%;
+  }
+  &__search {
+    background-image: url(../../assets/icons/trailing-icon.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-position-y: center;
+    background-color: #ECE6F0;
+    border: none;
+    border-radius: 20px;
+    width: 80%;
+    padding: 14px;
+  }
+  &__categories {
+    @include box-background-color;
+    background-color: #6750A4;
+    color: #FFFFFF;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    margin-top: 18%;
+    width: 93%;
+    font-weight: 400;
+    text-align: left;
+  }
+  &__row {
+    padding: 2% 5%;
+    border: 1px solid #CAC4D0;
+    border-radius: 12px;
+    margin-bottom: 10%;
+    box-shadow: 0px 2px 3px black;
+    &-container {
+      display: flex;
+      flex-direction: column;
+      align-items: space-between;
+      margin-bottom: 20%;
+    }
+    &-title {
+      color: black;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    &-subhead {
+      font-size: 10px;
+    }
+  }
+}
