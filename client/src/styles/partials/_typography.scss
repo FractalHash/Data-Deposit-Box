@@ -1,0 +1,9 @@
+@use "../partials/variables" as *;
+@use "../partials/mixins" as *;
+
+@font-face {
+  font-family: $text;
+  src: url("../../assets/Fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+}
