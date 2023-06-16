@@ -12,7 +12,7 @@ const Medical = () => {
       </div>
       <article className='medical__row-container'>
         <div className='medical__row'>
-          <Link to='/document-details'>
+          <Link to='/securityform'>
             <h3 className='medical__row-title'>MEDICAL HISTORY DOCUMENT</h3>
           </Link>
           <p className='medical__row-subhead'>Subhead</p>

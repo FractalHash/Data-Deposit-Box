@@ -28,7 +28,7 @@ const SecurityForm = () => {
 
     try {
       const response = await axios.post("http://localhost:8080/user/1/random-questions", { answers })
-      navigate("/")
+      navigate("/medical")
     } catch (e) {
       alert("Wrong answers!")
     }
