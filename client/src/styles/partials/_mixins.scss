@@ -1,0 +1,24 @@
+@use "variables" as *;
+
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+
+  @mixin flex($main-axis, $cross-axis: normal, $direction: row) {
+    display: flex;
+    justify-content: $main-axis;
+    align-items: $cross-axis;
+    flex-direction: $direction;
+  }
+
+  @mixin box-background-color {
+    background-color: $industry-purple
+  }
